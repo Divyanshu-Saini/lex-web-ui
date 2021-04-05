@@ -1,11 +1,11 @@
 <template>
-   <adaptive-cards
-      :card="card"
-      :data="data"
-      :use-templating="true"
-      :host-config="config"
-      @onActionClicked="onItemClick($event)"
-    />
+  <adaptive-cards
+    :card="card"
+    :data="data"
+    :use-templating="true"
+    :host-config="config"
+    @onActionClicked="onItemClick($event)"
+  />
 </template>
 
 <script>
@@ -27,9 +27,7 @@ export default {
     };
   },
   methods: {
-    onItemClick(event, item) {
-      console.info('item', item);
-      console.info('event', event._processedData);
+    onItemClick(event) {
       const message = {
         type: 'human',
         text: JSON.stringify(event._processedData),
@@ -44,7 +42,10 @@ export default {
     console.info('Adavtive jsons', aConfig);
     const acard = aConfig.filter(ele => ele.id === this.customPayload.customPayload.id)[0];
     console.info('acard :', acard);
-    this.data = acard.data;
+    this.data =
+      typeof this.customPayload.customPayload.data === 'object'
+        ? this.customPayload.customPayload.data
+        : acard.data;
     this.card = acard.card;
     this.config = acard.config;
   },
@@ -52,5 +53,4 @@ export default {
 </script>
 
 <style>
-
 </style>

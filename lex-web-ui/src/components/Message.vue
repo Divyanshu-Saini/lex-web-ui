@@ -2,11 +2,9 @@
   <v-flex d-flex class="message">
     <!-- contains message and response card -->
     <v-layout column ma-2 class="message-layout">
-
       <!-- contains message bubble and date -->
       <v-flex d-flex class="message-bubble-date-container">
         <v-layout column class="message-bubble-column">
-
           <!-- contains message bubble and avatar -->
           <v-flex d-flex class="message-bubble-avatar-container">
             <v-layout row class="message-bubble-row">
@@ -16,8 +14,7 @@
                 tabindex="-1"
                 class="bot-avatar"
                 aria-hidden="true"
-              >
-              </div>
+              ></div>
               <div
                 tabindex="0"
                 v-on:focus="onMessageFocus"
@@ -26,22 +23,38 @@
               >
                 <message-text
                   v-bind:message="message"
-                  v-if="'text' in message && message.text !== null && message.text.length"
+                  v-if="
+                    'text' in message &&
+                      message.text !== null &&
+                      message.text.length
+                  "
                 ></message-text>
                 <div
-                  v-if="message.id === this.$store.state.messages.length - 1 && isLastMessageFeedback && message.type === 'bot' && botDialogState && showDialogFeedback"
+                  v-if="
+                    message.id === this.$store.state.messages.length - 1 &&
+                      isLastMessageFeedback &&
+                      message.type === 'bot' &&
+                      botDialogState &&
+                      showDialogFeedback
+                  "
                   class="feedback-state"
                 >
                   <v-icon
                     v-on:click="onButtonClick(positiveIntent)"
-                    v-bind:class="{'feedback-icons-positive': !positiveClick, 'positiveClick': positiveClick}"
+                    v-bind:class="{
+                      'feedback-icons-positive': !positiveClick,
+                      positiveClick: positiveClick
+                    }"
                     tabindex="0"
                   >
                     thumb_up
                   </v-icon>
                   <v-icon
                     v-on:click="onButtonClick(negativeIntent)"
-                    v-bind:class="{'feedback-icons-negative': !negativeClick, 'negativeClick': negativeClick}"
+                    v-bind:class="{
+                      'feedback-icons-negative': !negativeClick,
+                      negativeClick: negativeClick
+                    }"
                     tabindex="0"
                   >
                     thumb_down
@@ -49,17 +62,21 @@
                 </div>
                 <v-icon
                   medium
-                  v-if="message.type === 'bot' && botDialogState && showDialogStateIcon"
+                  v-if="
+                    message.type === 'bot' &&
+                      botDialogState &&
+                      showDialogStateIcon
+                  "
                   v-bind:class="`dialog-state-${botDialogState.state}`"
                   class="dialog-state"
                 >
-                  {{botDialogState.icon}}
+                  {{ botDialogState.icon }}
                 </v-icon>
                 <div v-if="message.type === 'human' && message.audio">
-                    <audio>
-                      <source v-bind:src="message.audio" type="audio/wav">
-                    </audio>
-                    <v-btn
+                  <audio>
+                    <source v-bind:src="message.audio" type="audio/wav" />
+                  </audio>
+                  <v-btn
                     v-on:click="playAudio"
                     tabindex="0"
                     icon
@@ -69,26 +86,28 @@
                     <v-icon class="play-icon">play_circle_outline</v-icon>
                   </v-btn>
                 </div>
-                 <v-menu offset-y v-if="message.type === 'human'" v-show="showMessageMenu">
-                  <v-btn
-                    slot="activator"
-                    icon
-                  >
-                    <v-icon class="smicon">
-                      more_vert
-                    </v-icon>
+                <v-menu
+                  offset-y
+                  v-if="message.type === 'human'"
+                  v-show="showMessageMenu"
+                >
+                  <v-btn slot="activator" icon>
+                    <v-icon class="smicon"> more_vert </v-icon>
                   </v-btn>
                   <v-list>
                     <v-list-tile>
-                      <v-list-tile-title v-on:click="resendMessage(message.text)">
-                          <v-icon>replay</v-icon>
+                      <v-list-tile-title
+                        v-on:click="resendMessage(message.text)"
+                      >
+                        <v-icon>replay</v-icon>
                       </v-list-tile-title>
                     </v-list-tile>
                     <v-list-tile
                       v-if="message.type === 'human' && message.audio"
-                      class="message-audio">
+                      class="message-audio"
+                    >
                       <v-list-tile-title v-on:click="playAudio">
-                            <v-icon>play_circle_outline</v-icon>
+                        <v-icon>play_circle_outline</v-icon>
                       </v-list-tile-title>
                     </v-list-tile>
                   </v-list>
@@ -101,7 +120,7 @@
             class="text-xs-center message-date"
             aria-hidden="true"
           >
-           {{messageHumanDate}}
+            {{ messageHumanDate }}
           </v-flex>
         </v-layout>
       </v-flex>
@@ -109,7 +128,9 @@
         v-if="shouldDisplayResponseCard"
         class="response-card"
         d-flex
-        mt-2 mr-2 ml-3
+        mt-2
+        mr-2
+        ml-3
       >
         <response-card
           v-for="(card, index) in message.responseCard.genericAttachments"
@@ -117,6 +138,9 @@
           v-bind:key="index"
         >
         </response-card>
+      </v-flex>
+      <v-flex v-if="shouldDisplayAdaptiveCard" d-flex mt-2 mr-2 ml-3>
+        <adaptive-card :customPayload="customPayload"> </adaptive-card>
       </v-flex>
     </v-layout>
   </v-flex>
@@ -137,6 +161,7 @@ License for the specific language governing permissions and limitations under th
 */
 import MessageText from './MessageText';
 import ResponseCard from './ResponseCard';
+import AdaptiveCard from './AdaptiveCard';
 
 export default {
   name: 'message',
@@ -144,9 +169,11 @@ export default {
   components: {
     MessageText,
     ResponseCard,
+    AdaptiveCard,
   },
   data() {
     return {
+      customPayload: '',
       isMessageFocused: false,
       messageHumanDate: 'Now',
       positiveClick: false,
@@ -154,7 +181,8 @@ export default {
       hasButtonBeenClicked: false,
       positiveIntent: this.$store.state.config.ui.positiveFeedbackIntent,
       negativeIntent: this.$store.state.config.ui.negativeFeedbackIntent,
-      hideInputFields: this.$store.state.config.ui.hideInputFieldsForButtonResponse,
+      hideInputFields: this.$store.state.config.ui
+        .hideInputFieldsForButtonResponse,
     };
   },
   computed: {
@@ -173,7 +201,11 @@ export default {
       }
     },
     isLastMessageFeedback() {
-      if (this.$store.state.messages.length > 2 && this.$store.state.messages[this.$store.state.messages.length - 2].type !== 'feedback') {
+      if (
+        this.$store.state.messages.length > 2 &&
+        this.$store.state.messages[this.$store.state.messages.length - 2]
+          .type !== 'feedback'
+      ) {
         return true;
       }
       return false;
@@ -188,8 +220,10 @@ export default {
       return this.$store.state.config.ui.messageMenu;
     },
     showDialogFeedback() {
-      if (this.$store.state.config.ui.positiveFeedbackIntent.length > 2
-      && this.$store.state.config.ui.negativeFeedbackIntent.length > 2) {
+      if (
+        this.$store.state.config.ui.positiveFeedbackIntent.length > 2 &&
+        this.$store.state.config.ui.negativeFeedbackIntent.length > 2
+      ) {
         return true;
       }
       return false;
@@ -201,17 +235,15 @@ export default {
       return (
         this.message.responseCard &&
         (this.message.responseCard.version === '1' ||
-         this.message.responseCard.version === 1) &&
-        this.message.responseCard.contentType === 'application/vnd.amazonaws.card.generic' &&
+          this.message.responseCard.version === 1) &&
+        this.message.responseCard.contentType ===
+          'application/vnd.amazonaws.card.generic' &&
         'genericAttachments' in this.message.responseCard &&
         this.message.responseCard.genericAttachments instanceof Array
       );
     },
     shouldShowAvatarImage() {
-      return (
-        this.message.type === 'bot' &&
-        this.botAvatarUrl
-      );
+      return this.message.type === 'bot' && this.botAvatarUrl;
     },
     botAvatarBackground() {
       return {
@@ -220,6 +252,13 @@ export default {
     },
     shouldShowMessageDate() {
       return this.$store.state.config.ui.showMessageDate;
+    },
+    shouldDisplayAdaptiveCard() {
+      if (this.message && this.message.alts && this.message.alts.isCustom) {
+        this.customPayload = this.message.alts;
+        return true;
+      }
+      return false;
     },
   },
   methods: {
@@ -288,9 +327,15 @@ export default {
     },
   },
   created() {
-    if (this.message.responseCard && 'genericAttachments' in this.message.responseCard) {
-      if (this.message.responseCard.genericAttachments[0].buttons &&
-          this.hideInputFields && !this.$store.state.hasButtons) {
+    if (
+      this.message.responseCard &&
+      'genericAttachments' in this.message.responseCard
+    ) {
+      if (
+        this.message.responseCard.genericAttachments[0].buttons &&
+        this.hideInputFields &&
+        !this.$store.state.hasButtons
+      ) {
         this.$store.dispatch('toggleHasButtons');
       }
     } else if (this.$store.state.config.ui.hideInputFieldsForButtonResponse) {
@@ -307,11 +352,13 @@ export default {
   font-size: 14px;
 }
 
-.message, .message-bubble-column {
+.message,
+.message-bubble-column {
   flex: 0 0 auto;
 }
 
-.message, .message-bubble-row {
+.message,
+.message-bubble-row {
   max-width: 80vw;
 }
 
@@ -334,26 +381,28 @@ export default {
 }
 
 .focusable {
-  box-shadow: 0 0.25px 0.75px rgba(0,0,0,0.12), 0 0.25px 0.5px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 0.25px 0.75px rgba(0, 0, 0, 0.12),
+    0 0.25px 0.5px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: default;
 }
 
 .focusable:focus {
-  box-shadow: 0 1.25px 3.75px rgba(0,0,0,0.25), 0 1.25px 2.5px rgba(0,0,0,0.22);
+  box-shadow: 0 1.25px 3.75px rgba(0, 0, 0, 0.25),
+    0 1.25px 2.5px rgba(0, 0, 0, 0.22);
   outline: none;
 }
 
 .message-bot .message-bubble {
-  background-color: #FFEBEE; /* red-50 from material palette */
+  background-color: #ffebee; /* red-50 from material palette */
 }
 
 .message-human .message-bubble {
-  background-color: #E8EAF6; /* indigo-50 from material palette */
+  background-color: #e8eaf6; /* indigo-50 from material palette */
 }
 
 .message-feedback .message-bubble {
-  background-color: #E8EAF6;
+  background-color: #e8eaf6;
 }
 
 .dialog-state {
@@ -376,34 +425,34 @@ export default {
   align-self: center;
 }
 
-.icon.feedback-icons-positive{
+.icon.feedback-icons-positive {
   color: grey;
   /* color: #E8EAF6; */
   /* color: green; */
-  padding: .125em;
+  padding: 0.125em;
 }
 
-.positiveClick{
+.positiveClick {
   color: green;
-  padding: .125em;
+  padding: 0.125em;
 }
 
-.negativeClick{
+.negativeClick {
   color: red;
-  padding: .125em;
+  padding: 0.125em;
 }
 
-.icon.feedback-icons-positive:hover{
-  color:green;
+.icon.feedback-icons-positive:hover {
+  color: green;
 }
 
-.icon.feedback-icons-negative{
+.icon.feedback-icons-negative {
   /* color: #E8EAF6; */
   color: grey;
-  padding: .125em;
+  padding: 0.125em;
 }
 
-.icon.feedback-icons-negative:hover{
+.icon.feedback-icons-negative:hover {
   color: red;
 }
 

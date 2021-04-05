@@ -1,15 +1,16 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: "babel-eslint",
   parserOptions: {
-    sourceType: 'module'
+    sourceType: "module",
   },
   env: {
     browser: true,
   },
-  extends: 'airbnb-base',
+  extends: "airbnb-base",
   rules: {
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-  }
-}
+    "no-debugger": process.env.NODE_ENV === "production" ? 2 : 0,
+    "no-console": ["error", { allow: ["warn", "error", "info", "log"] }],
+  },
+};
