@@ -487,20 +487,25 @@ export default {
                     alts = {};
                   }
                   alts.markdown = mes.value ? mes.value : mes.content;
+                  alts.customPayload = JSON.parse(alts.markdown.replace(/\r?\n|\r/g, ''));
+                  alts.isCustom = true;
                 }
                 if ((mes.value && mes.value.length > 0) ||
                   (mes.content && mes.content.length > 0)) {
-                  context.dispatch(
-                    'pushMessage',
-                    {
-                      text: mes.value ? mes.value : mes.content,
-                      type: 'bot',
-                      dialogState: context.state.lex.dialogState,
-                      responseCard: tmsg.messages.length - 1 === index // attach response card only
-                        ? context.state.lex.responseCard : undefined, // for last response message
-                      alts,
-                    },
-                  );
+                  let text = mes.value ? mes.value : mes.content;
+                  if (alts && alts.isCustom) {
+                    text = null;
+                  }
+                  context.dispatch('pushMessage', {
+                    text,
+                    type: 'bot',
+                    dialogState: context.state.lex.dialogState,
+                    responseCard:
+                          tmsg.messages.length - 1 === index // attach response card only
+                            ? context.state.lex.responseCard
+                            : undefined, // for last response message
+                    alts,
+                  });
                 }
               });
             }

@@ -1,43 +1,57 @@
 {
+  "region": "ap-southeast-1",
   "cognito": {
-    "poolId": "us-east-1:b1e19043-d194-422a-adb4-2c3d1a90dd1f"
+    "poolId": "ap-southeast-1:40a63d0e-e082-420a-a9a1-03551bbe2d7a",
+    "appUserPoolClientId": "640cllo43pg7cbhdon5he6ffob",
+    "appUserPoolName": "ap-southeast-1_ovXnQXB21",
+    "appDomainName": "lexkwebkuikidentitypoolconfigkeibowhiualjc498078112631.auth.ap-southeast-1.amazoncognito.com",
+    "aws_cognito_region": "ap-southeast-1",
+    "region": "ap-southeast-1"
   },
   "lex": {
-    "v2BotId": "XEFGXXWCHS",
-    "v2BotAliasId": "PRZOQOS9YU",
+    "v2BotId": "KEFLOAHZIM",
+    "v2BotAliasId": "TSTALIASID",
     "v2BotLocaleId": "en_US",
-    "botName": "XEFGXXWCHS",
+    "botName": "KEFLOAHZIM",
     "botAlias": "$LATEST",
-    "initialText": "You can ask me for help ordering flowers. Just type \"order flowers\" or click on the mic and say it.",
-    "initialSpeechInstruction": "Say 'Order Flowers' to get started.",
+    "initialText": "You can ask me for help ordering flowers. Just type \"Buy flowers\" or click on the mic and say it.",
+    "initialSpeechInstruction": "Say 'Buy Flowers' to get started.",
     "initialUtterance": "",
-    "retryOnLexPostTextTimeout": false,
-    "retryCountPostTextTimeout": 1
+    "reInitSessionAttributesOnRestart": false,
+    "region": "ap-southeast-1",
+    "retryOnLexPostTextTimeout": "false",
+    "retryCountPostTextTimeout": "1"
+  },
+  "ui": {
+    "parentOrigin": "https://d5dpb1k9vf62o.cloudfront.net",
+    "toolbarTitle": "Order Flowers",
+    "toolbarLogo": "",
+    "positiveFeedbackIntent": "Thumbs up",
+    "negativeFeedbackIntent": "Thumbs down",
+    "helpIntent": "Help",
+    "enableLogin": false,
+    "forceLogin": false,
+    "AllowSuperDangerousHTMLInMessage": true,
+    "shouldDisplayResponseCardTitle": false,
+    "saveHistory": false,
+    "minButtonContent": "",
+    "hideInputFieldsForButtonResponse": false,
+    "pushInitialTextOnRestart": false,
+    "directFocusToBotInput": false,
+    "showDialogStateIcon": false,
+    "backButton": false,
+    "messageMenu": true,
+    "hideButtonMessageBubble": false
   },
   "polly": {
     "voiceId": "Salli"
-  },
-  "ui": {
-    "parentOrigin": "http://localhost:8080",
-    "pageTitle": "Order Config Bot",
-    "toolbarTitle": "Order Config",
-    "enableLogin": true,
-    "forceLogin": true,
-    "pushInitialTextOnRestart": false,
-    "shouldDisplayResponseCardTitle": false,
-    "showErrorIcon": true,
-    "showDialogStateIcon": false,
-    "positiveFeedbackIntent": "Thumbs up",
-    "negativeFeedbackIntent": "Thumbs down",
-    "helpIntent": "help",
-    "hideInputFieldsForButtonResponse": true,
-    "backButton": false,
-    "messageMenu": true
   },
   "recorder": {
     "preset": "speech_recognition"
   },
   "iframe": {
-    "shouldLoadIframeMinimized": false
+    "iframeOrigin": "https://d5dpb1k9vf62o.cloudfront.net",
+    "shouldLoadIframeMinimized": false,
+    "iframeSrcPath": "/index.html#/?lexWebUiEmbed=true"
   }
 }

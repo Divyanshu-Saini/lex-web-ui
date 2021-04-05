@@ -1,0 +1,821 @@
+[
+  {
+    "id": "card1",
+    "card": {
+      "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+      "type": "AdaptiveCard",
+      "version": "1.3",
+      "speak": "Your  meeting about Adaptive Card design session is starting at ${formatDateTime(start.dateTime, 'HH:mm')}pm. Do you want to snooze or do you want to send a late notification to the attendees?",
+      "body": [
+        {
+          "type": "TextBlock",
+          "text": "${summary}",
+          "size": "Large",
+          "weight": "Bolder"
+        },
+        {
+          "type": "TextBlock",
+          "text": " ${location} ",
+          "isSubtle": true
+        },
+        {
+          "type": "TextBlock",
+          "text": "${formatDateTime(start.dateTime, 'HH:mm')} - ${formatDateTime(end.dateTime, 'hh:mm')}",
+          "isSubtle": true,
+          "spacing": "None"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "snooze",
+          "label": "Snooze for",
+          "value": "${reminders.overrides[0].minutes}",
+          "choices": [
+            {
+              "$data": "${reminders.overrides}",
+              "title": "${minutes} minutes",
+              "value": "${minutes}"
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Snooze",
+          "data": {
+            "x": "snooze"
+          }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "I'll be late",
+          "data": {
+            "x": "late"
+          }
+        }
+      ]
+    },
+    "config": {
+      "choiceSetInputValueSeparator": ",",
+      "supportsInteractivity": true,
+      "spacing": {
+        "small": 8,
+        "default": 12,
+        "medium": 16,
+        "large": 20,
+        "extraLarge": 24,
+        "padding": 16
+      },
+      "separator": {
+        "lineThickness": 1,
+        "lineColor": "#EEEEEE"
+      },
+      "imageSizes": {
+        "small": 32,
+        "medium": 52,
+        "large": 100
+      },
+      "fontTypes": {
+        "default": {
+          "fontFamily": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          "fontSizes": {
+            "small": 12,
+            "default": 14,
+            "medium": 14,
+            "large": 18,
+            "extraLarge": 24
+          },
+          "fontWeights": {
+            "lighter": 200,
+            "default": 400,
+            "bolder": 600
+          }
+        },
+        "monospace": {
+          "fontFamily": "'Courier New', Courier, monospace",
+          "fontSizes": {
+            "small": 12,
+            "default": 14,
+            "medium": 14,
+            "large": 18,
+            "extraLarge": 24
+          },
+          "fontWeights": {
+            "lighter": 200,
+            "default": 400,
+            "bolder": 600
+          }
+        }
+      },
+      "containerStyles": {
+        "default": {
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          },
+          "backgroundColor": "#ffffff"
+        },
+        "emphasis": {
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          },
+          "backgroundColor": "#fff9f8f7"
+        },
+        "accent": {
+          "backgroundColor": "#C7DEF9",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        },
+        "good": {
+          "backgroundColor": "#CCFFCC",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        },
+        "attention": {
+          "backgroundColor": "#FFC5B2",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        },
+        "warning": {
+          "backgroundColor": "#FFE2B2",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        }
+      },
+      "actions": {
+        "maxActions": 6,
+        "spacing": "Default",
+        "buttonSpacing": 8,
+        "showCard": {
+          "actionMode": "Inline",
+          "inlineTopMargin": 16,
+          "style": "emphasis"
+        },
+        "preExpandSingleShowCardAction": false,
+        "actionsOrientation": "Horizontal",
+        "actionAlignment": "Left"
+      },
+      "adaptiveCard": {
+        "allowCustomStyle": false
+      },
+      "imageSet": {
+        "imageSize": "Medium",
+        "maxImageHeight": 100
+      },
+      "factSet": {
+        "title": {
+          "size": "Default",
+          "color": "Default",
+          "isSubtle": false,
+          "weight": "Bolder",
+          "warp": true
+        },
+        "value": {
+          "size": "Default",
+          "color": "Default",
+          "isSubtle": false,
+          "weight": "Default",
+          "warp": true
+        },
+        "spacing": 16
+      }
+    },
+    "data": {
+      "kind": "calendar#event",
+      "etag": "3007572097704000",
+      "id": "_6sp3gdjcksmab9kc4rgq1aldjelm8chhcgp66phocg_20191105T150000Z",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzZzcDNnZGoxNjBxamdiYjRja3NtYWI5a2M0cmplYjlwNjhyM2diOXA2Z3FtOGNoaGNncDY2cGhvY2dfMjA2xO1UwMDAuZ0Bt",
+      "created": "2016-12-29T06:35:05.000Z",
+      "updated": "2018-04-24T14:04:50.184Z",
+      "summary": "Adaptive Card design session",
+      "location": "Conf Room 112/3377 (10)",
+      "creator": {
+        "email": "sundance@outlook.com",
+        "displayName": "John Doe",
+        "self": true
+      },
+      "organizer": {
+        "email": "sundance@outlook.com",
+        "displayName": "John Doe",
+        "self": true
+      },
+      "start": {
+        "dateTime": "2019-11-05T12:30:00-08:00",
+        "timeZone": "America/Los_Angeles"
+      },
+      "end": {
+        "dateTime": "2019-11-05T13:30:00-08:00",
+        "timeZone": "America/Los_Angeles"
+      },
+      "recurringEventId": "_6sp3gdj160qjgbb4cksmab9kc4rjeb9p68r3gb9p6gqm8chhcgp66phocg",
+      "originalStartTime": {
+        "dateTime": "12:30",
+        "timeZone": "America/Los_Angeles"
+      },
+      "visibility": "private",
+      "iCalUID": "7286a058-de9e-4a77-9268-945d21d2cf8d",
+      "sequence": 4,
+      "reminders": {
+        "useDefault": false,
+        "overrides": [
+          {
+            "method": "popup",
+            "minutes": "5"
+          },
+          {
+            "method": "popup",
+            "minutes": "15"
+          },
+          {
+            "method": "popup",
+            "minutes": "30"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "card2",
+    "card": {
+      "type": "AdaptiveCard",
+      "body": [
+        {
+          "type": "TextBlock",
+          "size": "Medium",
+          "weight": "Bolder",
+          "text": "${title}"
+        },
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "Image",
+                  "style": "Person",
+                  "url": "${creator.profileImage}",
+                  "size": "Small"
+                }
+              ],
+              "width": "auto"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "weight": "Bolder",
+                  "text": "${creator.name}",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "spacing": "None",
+                  "text": "Created {{DATE(${createdUtc},SHORT)}}",
+                  "isSubtle": true,
+                  "wrap": true
+                }
+              ],
+              "width": "stretch"
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "text": "${description}",
+          "wrap": true
+        },
+        {
+          "type": "FactSet",
+          "facts": [
+            {
+              "$data": "${properties}",
+              "title": "${key}:",
+              "value": "${value}"
+            }
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "type": "Action.ShowCard",
+          "title": "Set due date",
+          "card": {
+            "type": "AdaptiveCard",
+            "body": [
+              {
+                "type": "Input.Date",
+                "id": "dueDate"
+              },
+              {
+                "type": "Input.Text",
+                "id": "comment",
+                "placeholder": "Add a comment",
+                "isMultiline": true
+              }
+            ],
+            "actions": [
+              {
+                "type": "Action.Submit",
+                "title": "OK"
+              }
+            ],
+            "$schema": "http://adaptivecards.io/schemas/adaptive-card.json"
+          }
+        },
+        {
+          "type": "Action.OpenUrl",
+          "title": "View",
+          "url": "${viewUrl}"
+        }
+      ],
+      "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+      "version": "1.3"
+    },
+    "config": {
+      "choiceSetInputValueSeparator": ",",
+      "supportsInteractivity": true,
+      "spacing": {
+        "small": 8,
+        "default": 12,
+        "medium": 16,
+        "large": 20,
+        "extraLarge": 24,
+        "padding": 16
+      },
+      "separator": {
+        "lineThickness": 1,
+        "lineColor": "#EEEEEE"
+      },
+      "imageSizes": {
+        "small": 32,
+        "medium": 52,
+        "large": 100
+      },
+      "fontTypes": {
+        "default": {
+          "fontFamily": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          "fontSizes": {
+            "small": 12,
+            "default": 14,
+            "medium": 14,
+            "large": 18,
+            "extraLarge": 24
+          },
+          "fontWeights": {
+            "lighter": 200,
+            "default": 400,
+            "bolder": 600
+          }
+        },
+        "monospace": {
+          "fontFamily": "'Courier New', Courier, monospace",
+          "fontSizes": {
+            "small": 12,
+            "default": 14,
+            "medium": 14,
+            "large": 18,
+            "extraLarge": 24
+          },
+          "fontWeights": {
+            "lighter": 200,
+            "default": 400,
+            "bolder": 600
+          }
+        }
+      },
+      "containerStyles": {
+        "default": {
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          },
+          "backgroundColor": "#ffffff"
+        },
+        "emphasis": {
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          },
+          "backgroundColor": "#fff9f8f7"
+        },
+        "accent": {
+          "backgroundColor": "#C7DEF9",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        },
+        "good": {
+          "backgroundColor": "#CCFFCC",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        },
+        "attention": {
+          "backgroundColor": "#FFC5B2",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        },
+        "warning": {
+          "backgroundColor": "#FFE2B2",
+          "foregroundColors": {
+            "default": {
+              "default": "#ff252424",
+              "subtle": "#bf252424"
+            },
+            "dark": {
+              "default": "#252424",
+              "subtle": "#bf252424"
+            },
+            "light": {
+              "default": "#ffffff",
+              "subtle": "#fff3f2f1"
+            },
+            "accent": {
+              "default": "#6264a7",
+              "subtle": "#8b8cc7"
+            },
+            "good": {
+              "default": "#92c353",
+              "subtle": "#e592c353"
+            },
+            "warning": {
+              "default": "#f8d22a",
+              "subtle": "#e5f8d22a"
+            },
+            "attention": {
+              "default": "#c4314b",
+              "subtle": "#e5c4314b"
+            }
+          }
+        }
+      },
+      "actions": {
+        "maxActions": 6,
+        "spacing": "Default",
+        "buttonSpacing": 8,
+        "showCard": {
+          "actionMode": "Inline",
+          "inlineTopMargin": 16,
+          "style": "emphasis"
+        },
+        "preExpandSingleShowCardAction": false,
+        "actionsOrientation": "Horizontal",
+        "actionAlignment": "Left"
+      },
+      "adaptiveCard": {
+        "allowCustomStyle": false
+      },
+      "imageSet": {
+        "imageSize": "Medium",
+        "maxImageHeight": 100
+      },
+      "factSet": {
+        "title": {
+          "size": "Default",
+          "color": "Default",
+          "isSubtle": false,
+          "weight": "Bolder",
+          "warp": true
+        },
+        "value": {
+          "size": "Default",
+          "color": "Default",
+          "isSubtle": false,
+          "weight": "Default",
+          "warp": true
+        },
+        "spacing": 16
+      }
+    },
+    "data": {
+      "title": "Publish Adaptive Card Schema",
+      "description": "Now that we have defined the main rules and features of the format, we need to produce a schema and publish it to GitHub. The schema will be the starting point of our reference documentation.",
+      "creator": {
+        "name": "Matt Hidinger",
+        "profileImage": "https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg"
+      },
+      "createdUtc": "2017-02-14T06:08:39Z",
+      "viewUrl": "https://adaptivecards.io",
+      "properties": [
+        {
+          "key": "Board",
+          "value": "Adaptive Cards"
+        },
+        {
+          "key": "List",
+          "value": "Backlog"
+        },
+        {
+          "key": "Assigned to",
+          "value": "Matt Hidinger"
+        },
+        {
+          "key": "Due date",
+          "value": "Not set"
+        }
+      ]
+    }
+  }
+]
