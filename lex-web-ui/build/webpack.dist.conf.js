@@ -20,13 +20,13 @@ const minPlugIns = [
   new webpack.DefinePlugin({
     'process.env': config.dist.env
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-      drop_console: true,
-      drop_debugger: true,
-    },
-  }),
+  // new webpack.optimize.UglifyJsPlugin({
+  //   compress: {
+  //     warnings: false,
+  //     drop_console: true,
+  //     drop_debugger: true,
+  //   },
+  // }),
   // extract css into its own file
   new ExtractTextPlugin({
     filename: assetsPath('[name].min.css'),
@@ -63,7 +63,7 @@ const regularPlugIns = [
   }),
 ];
 
-function buildConfig(minimize = true) {
+function buildConfig(minimize = false) {
   // remove sample app entry from merged config to avoid rebuilding it
   delete baseWebpackConfig.entry.app;
 

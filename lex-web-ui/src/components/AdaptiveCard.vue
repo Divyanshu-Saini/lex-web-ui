@@ -10,6 +10,7 @@
 
 <script>
 /* eslint no-underscore-dangle: 0 */
+/* eslint-disable */
 import { AdaptiveCards } from 'adaptivecards-vue';
 import * as aConfig from '../config/adaptive.card.template.json';
 
