@@ -12,7 +12,6 @@
 /* eslint no-underscore-dangle: 0 */
 /* eslint-disable */
 import { AdaptiveCards } from "adaptivecards-vue";
-// import * as aConfig from '../config/adaptive.card.template.json';
 
 export default {
   name: "adaptive-card",
@@ -41,15 +40,15 @@ export default {
   created() {
     console.info("In adaptiveCards :", this.customPayload);
     if (this.customPayload.isCustom && this.customPayload.customPayload) {
-      this.card = this.customPayload.customPayload.card
-        ? this.customPayload.customPayload.card
+      this.card = this.customPayload.customPayload
+        ? this.customPayload.customPayload
         : "";
-      this.data = this.customPayload.customPayload.data
-        ? this.customPayload.customPayload.data
-        : "";
-      this.config = this.customPayload.customPayload.config
-        ? this.customPayload.customPayload.config
-        : "";
+      // this.data = this.customPayload.customPayload.data
+      //   ? this.customPayload.customPayload.data
+      //   : "";
+      // this.config = this.customPayload.customPayload.config
+      //   ? this.customPayload.customPayload.config
+      //   : "";
     }
   },
 };
