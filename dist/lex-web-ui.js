@@ -12564,6 +12564,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_111__;
 //
 //
 //
+//
+//
 
 /*
 Copyright 2017-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -12637,6 +12639,13 @@ var jwt = __webpack_require__(123);
     isMobile: function isMobile() {
       var mobileResolution = 900;
       return this.$vuetify.breakpoint.smAndDown && 'navigator' in window && navigator.maxTouchPoints > 0 && 'screen' in window && (window.screen.height < mobileResolution || window.screen.width < mobileResolution);
+    },
+    showHeader: function showHeader() {
+      var header = this.$store.state.config.ui.showHeader;
+      if (header !== undefined) {
+        return header;
+      }
+      return true;
     }
   },
   watch: {
@@ -20883,7 +20892,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_203__;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_LexWeb_vue__ = __webpack_require__(112);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_41ec4358_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_LexWeb_vue__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_04ec1e24_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_LexWeb_vue__ = __webpack_require__(345);
 function injectStyle (ssrContext) {
   __webpack_require__(205)
 }
@@ -20903,7 +20912,7 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_LexWeb_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_41ec4358_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_LexWeb_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_04ec1e24_hasScoped_false_transformToRequire_video_src_source_src_img_src_image_xlink_href_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_LexWeb_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
@@ -38941,7 +38950,7 @@ module.exports = once;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-app',{attrs:{"id":"lex-web","ui-minimized":_vm.isUiMinimized}},[_c('min-button',{attrs:{"toolbar-color":_vm.toolbarColor,"is-ui-minimized":_vm.isUiMinimized},on:{"toggleMinimizeUi":_vm.toggleMinimizeUi}}),_vm._v(" "),(!_vm.isUiMinimized)?_c('toolbar-container',{attrs:{"userName":_vm.userNameValue,"toolbar-title":_vm.toolbarTitle,"toolbar-color":_vm.toolbarColor,"toolbar-logo":_vm.toolbarLogo,"is-ui-minimized":_vm.isUiMinimized},on:{"toggleMinimizeUi":_vm.toggleMinimizeUi,"requestLogin":_vm.handleRequestLogin,"requestLogout":_vm.handleRequestLogout}}):_vm._e(),_vm._v(" "),(!_vm.isUiMinimized)?_c('v-content',[_c('v-container',{staticClass:"message-list-container",class:("toolbar-height-" + _vm.toolbarHeightClassSuffix),attrs:{"fluid":"","pa-0":""}},[(!_vm.isUiMinimized)?_c('message-list'):_vm._e()],1)],1):_vm._e(),_vm._v(" "),(!_vm.isUiMinimized && !_vm.hasButtons)?_c('input-container',{ref:"InputContainer",attrs:{"text-input-placeholder":_vm.textInputPlaceholder,"initial-speech-instruction":_vm.initialSpeechInstruction}}):_vm._e(),_vm._v(" "),(_vm.isSFXOn)?_c('div',{attrs:{"id":"sound","aria-hidden":"true"}}):_vm._e()],1)}
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('v-app',{attrs:{"id":"lex-web","ui-minimized":_vm.isUiMinimized}},[_c('min-button',{attrs:{"toolbar-color":_vm.toolbarColor,"is-ui-minimized":_vm.isUiMinimized},on:{"toggleMinimizeUi":_vm.toggleMinimizeUi}}),_vm._v(" "),(_vm.showHeader)?_c('div',[(!_vm.isUiMinimized)?_c('toolbar-container',{attrs:{"userName":_vm.userNameValue,"toolbar-title":_vm.toolbarTitle,"toolbar-color":_vm.toolbarColor,"toolbar-logo":_vm.toolbarLogo,"is-ui-minimized":_vm.isUiMinimized},on:{"toggleMinimizeUi":_vm.toggleMinimizeUi,"requestLogin":_vm.handleRequestLogin,"requestLogout":_vm.handleRequestLogout}}):_vm._e()],1):_vm._e(),_vm._v(" "),(!_vm.isUiMinimized)?_c('v-content',[_c('v-container',{staticClass:"message-list-container",class:("toolbar-height-" + _vm.toolbarHeightClassSuffix),attrs:{"fluid":"","pa-0":""}},[(!_vm.isUiMinimized)?_c('message-list'):_vm._e()],1)],1):_vm._e(),_vm._v(" "),(!_vm.isUiMinimized && !_vm.hasButtons)?_c('input-container',{ref:"InputContainer",attrs:{"text-input-placeholder":_vm.textInputPlaceholder,"initial-speech-instruction":_vm.initialSpeechInstruction}}):_vm._e(),_vm._v(" "),(_vm.isSFXOn)?_c('div',{attrs:{"id":"sound","aria-hidden":"true"}}):_vm._e()],1)}
 var staticRenderFns = []
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);
@@ -39643,7 +39652,7 @@ module.exports = {}
 /* 370 */
 /***/ (function(module, exports) {
 
-module.exports = {"region":"ap-southeast-1","cognito":{"poolId":"ap-southeast-1:40a63d0e-e082-420a-a9a1-03551bbe2d7a","appUserPoolClientId":"640cllo43pg7cbhdon5he6ffob","appUserPoolName":"ap-southeast-1_ovXnQXB21","appDomainName":"lexkwebkuikidentitypoolconfigkeibowhiualjc498078112631.auth.ap-southeast-1.amazoncognito.com","aws_cognito_region":"ap-southeast-1","region":"ap-southeast-1"},"lex":{"v2BotId":"KEFLOAHZIM","v2BotAliasId":"TSTALIASID","v2BotLocaleId":"en_US","botName":"KEFLOAHZIM","botAlias":"$LATEST","initialText":"You can ask me for help ordering flowers. Just type \"Buy flowers\" or click on the mic and say it.","initialSpeechInstruction":"Say 'Buy Flowers' to get started.","initialUtterance":"","reInitSessionAttributesOnRestart":false,"region":"ap-southeast-1","retryOnLexPostTextTimeout":"false","retryCountPostTextTimeout":"1"},"ui":{"parentOrigin":"https://d5dpb1k9vf62o.cloudfront.net","toolbarTitle":"Order Flowers","toolbarLogo":"","positiveFeedbackIntent":"Thumbs up","negativeFeedbackIntent":"Thumbs down","helpIntent":"Help","enableLogin":false,"forceLogin":false,"AllowSuperDangerousHTMLInMessage":true,"shouldDisplayResponseCardTitle":false,"saveHistory":false,"minButtonContent":"","hideInputFieldsForButtonResponse":false,"pushInitialTextOnRestart":false,"directFocusToBotInput":false,"showDialogStateIcon":false,"backButton":false,"messageMenu":true,"hideButtonMessageBubble":false},"polly":{"voiceId":"Salli"},"recorder":{"preset":"speech_recognition"},"iframe":{"iframeOrigin":"https://d5dpb1k9vf62o.cloudfront.net","shouldLoadIframeMinimized":false,"iframeSrcPath":"/index.html#/?lexWebUiEmbed=true"}}
+module.exports = {"region":"ap-southeast-1","cognito":{"poolId":"ap-southeast-1:40a63d0e-e082-420a-a9a1-03551bbe2d7a","appUserPoolClientId":"640cllo43pg7cbhdon5he6ffob","appUserPoolName":"ap-southeast-1_ovXnQXB21","appDomainName":"lexkwebkuikidentitypoolconfigkeibowhiualjc498078112631.auth.ap-southeast-1.amazoncognito.com","aws_cognito_region":"ap-southeast-1","region":"ap-southeast-1"},"lex":{"v2BotId":"KEFLOAHZIM","v2BotAliasId":"TSTALIASID","v2BotLocaleId":"en_US","botName":"KEFLOAHZIM","botAlias":"$LATEST","initialText":"You can ask me for help ordering flowers. Just type \"Buy flowers\" or click on the mic and say it.","initialSpeechInstruction":"Say 'Buy Flowers' to get started.","initialUtterance":"","reInitSessionAttributesOnRestart":false,"region":"ap-southeast-1","retryOnLexPostTextTimeout":"false","retryCountPostTextTimeout":"1"},"ui":{"parentOrigin":"https://d5dpb1k9vf62o.cloudfront.net","toolbarTitle":"Order Flowers","toolbarLogo":"","positiveFeedbackIntent":"Thumbs up","negativeFeedbackIntent":"Thumbs down","helpIntent":"Help","enableLogin":false,"forceLogin":false,"AllowSuperDangerousHTMLInMessage":true,"shouldDisplayResponseCardTitle":false,"saveHistory":false,"minButtonContent":"","hideInputFieldsForButtonResponse":false,"pushInitialTextOnRestart":false,"directFocusToBotInput":false,"showDialogStateIcon":false,"backButton":false,"messageMenu":true,"hideButtonMessageBubble":false,"showHeader":true},"polly":{"voiceId":"Salli"},"recorder":{"preset":"speech_recognition"},"iframe":{"iframeOrigin":"https://d5dpb1k9vf62o.cloudfront.net","shouldLoadIframeMinimized":false,"iframeSrcPath":"/index.html#/?lexWebUiEmbed=true"}}
 
 /***/ }),
 /* 371 */
