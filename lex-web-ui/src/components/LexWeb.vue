@@ -7,6 +7,7 @@
       v-bind:is-ui-minimized="isUiMinimized"
       v-on:toggleMinimizeUi="toggleMinimizeUi"
     ></min-button>
+    <div v-if="showHeader">
     <toolbar-container
       v-if="!isUiMinimized"
       v-bind:userName="userNameValue"
@@ -18,6 +19,7 @@
       @requestLogin="handleRequestLogin"
       @requestLogout="handleRequestLogout"
     ></toolbar-container>
+    </div>
 
     <v-content
       v-if="!isUiMinimized"
@@ -124,6 +126,13 @@ export default {
         (window.screen.height < mobileResolution ||
           window.screen.width < mobileResolution)
       );
+    },
+    showHeader() {
+      const header = this.$store.state.config.ui.showHeader;
+      if (header !== undefined) {
+        return header;
+      }
+      return true;
     },
   },
   watch: {

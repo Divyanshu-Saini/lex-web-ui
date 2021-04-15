@@ -41,7 +41,8 @@
     "showDialogStateIcon": false,
     "backButton": false,
     "messageMenu": true,
-    "hideButtonMessageBubble": false
+    "hideButtonMessageBubble": false,
+    "showHeader":true
   },
   "polly": {
     "voiceId": "Salli"
