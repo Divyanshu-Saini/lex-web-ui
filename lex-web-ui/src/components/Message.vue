@@ -3,6 +3,27 @@
     <!-- contains message and response card -->
     <v-layout column ma-2 class="message-layout">
       <!-- contains message bubble and date -->
+      <!-- Adaptive Cards -->
+      <v-flex v-if="shouldDisplayAdaptiveCard" d-flex mt-2 mr-2 ml-3>
+        <adaptive-card :customPayload="customPayload"> </adaptive-card>
+      </v-flex>
+      <!-- Response Card -->
+      <v-flex
+        v-if="shouldDisplayResponseCard"
+        class="response-card"
+        d-flex
+        mt-2
+        mr-2
+        ml-3
+      >
+        <response-card
+          v-for="(card, index) in message.responseCard.genericAttachments"
+          v-bind:response-card="card"
+          v-bind:key="index"
+        >
+        </response-card>
+      </v-flex>
+      <!-- PlainText -->
       <v-flex d-flex class="message-bubble-date-container">
         <v-layout column class="message-bubble-column">
           <!-- contains message bubble and avatar -->
@@ -25,17 +46,17 @@
                   v-bind:message="message"
                   v-if="
                     'text' in message &&
-                      message.text !== null &&
-                      message.text.length
+                    message.text !== null &&
+                    message.text.length
                   "
                 ></message-text>
                 <div
                   v-if="
                     message.id === this.$store.state.messages.length - 1 &&
-                      isLastMessageFeedback &&
-                      message.type === 'bot' &&
-                      botDialogState &&
-                      showDialogFeedback
+                    isLastMessageFeedback &&
+                    message.type === 'bot' &&
+                    botDialogState &&
+                    showDialogFeedback
                   "
                   class="feedback-state"
                 >
@@ -43,7 +64,7 @@
                     v-on:click="onButtonClick(positiveIntent)"
                     v-bind:class="{
                       'feedback-icons-positive': !positiveClick,
-                      positiveClick: positiveClick
+                      positiveClick: positiveClick,
                     }"
                     tabindex="0"
                   >
@@ -53,7 +74,7 @@
                     v-on:click="onButtonClick(negativeIntent)"
                     v-bind:class="{
                       'feedback-icons-negative': !negativeClick,
-                      negativeClick: negativeClick
+                      negativeClick: negativeClick,
                     }"
                     tabindex="0"
                   >
@@ -64,8 +85,8 @@
                   medium
                   v-if="
                     message.type === 'bot' &&
-                      botDialogState &&
-                      showDialogStateIcon
+                    botDialogState &&
+                    showDialogStateIcon
                   "
                   v-bind:class="`dialog-state-${botDialogState.state}`"
                   class="dialog-state"
@@ -123,24 +144,6 @@
             {{ messageHumanDate }}
           </v-flex>
         </v-layout>
-      </v-flex>
-      <v-flex
-        v-if="shouldDisplayResponseCard"
-        class="response-card"
-        d-flex
-        mt-2
-        mr-2
-        ml-3
-      >
-        <response-card
-          v-for="(card, index) in message.responseCard.genericAttachments"
-          v-bind:response-card="card"
-          v-bind:key="index"
-        >
-        </response-card>
-      </v-flex>
-      <v-flex v-if="shouldDisplayAdaptiveCard" d-flex mt-2 mr-2 ml-3>
-        <adaptive-card :customPayload="customPayload"> </adaptive-card>
       </v-flex>
     </v-layout>
   </v-flex>
