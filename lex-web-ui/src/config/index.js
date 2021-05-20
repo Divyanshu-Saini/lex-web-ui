@@ -147,7 +147,7 @@ const configDefault = {
     messageReceivedSFX: 'received.mp3',
 
     // chat window text placeholder
-    textInputPlaceholder: 'Type here or click on the mic',
+    textInputPlaceholder: 'Type here .....',
 
     // text shown when you hover over the minimized bot button
     minButtonContent: '',
