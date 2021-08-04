@@ -26,4 +26,5 @@ export default {
     if (state.utteranceStack.length === 0) return '';
     return state.utteranceStack[state.utteranceStack.length - 1].t;
   },
+  getLexSessionAttributes: state => state.lex.sessionAttributes,
 };

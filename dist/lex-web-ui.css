@@ -558,38 +558,38 @@ NOTE: not using var() for different heights due to IE11 compatibility
   margin: 0;
 }
 
-.message-list[data-v-c328d2b2] {
+.message-list[data-v-2f3c7062] {
   padding-top: 1rem;
   overflow-y: auto;
   overflow-x: hidden;
 }
-.message-bot[data-v-c328d2b2] {
+.message-bot[data-v-2f3c7062] {
   -ms-flex-item-align: start;
       align-self: flex-start;
 }
-.message-human[data-v-c328d2b2] {
+.message-human[data-v-2f3c7062] {
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
-.message-feedback[data-v-c328d2b2] {
+.message-feedback[data-v-2f3c7062] {
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
 
-.smicon[data-v-504c4277] {
+.smicon[data-v-32043446] {
   font-size: 14px;
 }
-.message[data-v-504c4277],
-.message-bubble-column[data-v-504c4277] {
+.message[data-v-32043446],
+.message-bubble-column[data-v-32043446] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
-.message[data-v-504c4277],
-.message-bubble-row[data-v-504c4277] {
+.message[data-v-32043446],
+.message-bubble-row[data-v-32043446] {
   max-width: 80vw;
 }
-.bot-avatar[data-v-504c4277] {
+.bot-avatar[data-v-32043446] {
   -ms-flex-item-align: center;
       align-self: center;
   border-radius: 50%;
@@ -599,7 +599,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
       align-self: flex-start;
   margin-right: 4px;
 }
-.message-bubble[data-v-504c4277] {
+.message-bubble[data-v-32043446] {
   border-radius: 24px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -612,7 +612,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
   -ms-flex-item-align: center;
       align-self: center;
 }
-.focusable[data-v-504c4277] {
+.focusable[data-v-32043446] {
   -webkit-box-shadow: 0 0.25px 0.75px rgba(0, 0, 0, 0.12),
     0 0.25px 0.5px rgba(0, 0, 0, 0.24);
           box-shadow: 0 0.25px 0.75px rgba(0, 0, 0, 0.12),
@@ -621,79 +621,79 @@ NOTE: not using var() for different heights due to IE11 compatibility
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: default;
 }
-.focusable[data-v-504c4277]:focus {
+.focusable[data-v-32043446]:focus {
   -webkit-box-shadow: 0 1.25px 3.75px rgba(0, 0, 0, 0.25),
     0 1.25px 2.5px rgba(0, 0, 0, 0.22);
           box-shadow: 0 1.25px 3.75px rgba(0, 0, 0, 0.25),
     0 1.25px 2.5px rgba(0, 0, 0, 0.22);
   outline: none;
 }
-.message-bot .message-bubble[data-v-504c4277] {
+.message-bot .message-bubble[data-v-32043446] {
   background-color: #ffebee; /* red-50 from material palette */
 }
-.message-human .message-bubble[data-v-504c4277] {
+.message-human .message-bubble[data-v-32043446] {
   background-color: #e8eaf6; /* indigo-50 from material palette */
 }
-.message-feedback .message-bubble[data-v-504c4277] {
+.message-feedback .message-bubble[data-v-32043446] {
   background-color: #e8eaf6;
 }
-.dialog-state[data-v-504c4277] {
+.dialog-state[data-v-32043446] {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
-.icon.dialog-state-ok[data-v-504c4277] {
+.icon.dialog-state-ok[data-v-32043446] {
   color: green;
 }
-.icon.dialog-state-fail[data-v-504c4277] {
+.icon.dialog-state-fail[data-v-32043446] {
   color: red;
 }
-.play-icon[data-v-504c4277] {
+.play-icon[data-v-32043446] {
   font-size: 2em;
 }
-.feedback-state[data-v-504c4277] {
+.feedback-state[data-v-32043446] {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-item-align: center;
       align-self: center;
 }
-.icon.feedback-icons-positive[data-v-504c4277] {
+.icon.feedback-icons-positive[data-v-32043446] {
   color: grey;
   /* color: #E8EAF6; */
   /* color: green; */
   padding: 0.125em;
 }
-.positiveClick[data-v-504c4277] {
+.positiveClick[data-v-32043446] {
   color: green;
   padding: 0.125em;
 }
-.negativeClick[data-v-504c4277] {
+.negativeClick[data-v-32043446] {
   color: red;
   padding: 0.125em;
 }
-.icon.feedback-icons-positive[data-v-504c4277]:hover {
+.icon.feedback-icons-positive[data-v-32043446]:hover {
   color: green;
 }
-.icon.feedback-icons-negative[data-v-504c4277] {
+.icon.feedback-icons-negative[data-v-32043446] {
   /* color: #E8EAF6; */
   color: grey;
   padding: 0.125em;
 }
-.icon.feedback-icons-negative[data-v-504c4277]:hover {
+.icon.feedback-icons-negative[data-v-32043446]:hover {
   color: red;
 }
-.response-card[data-v-504c4277] {
+.response-card[data-v-32043446] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   width: 85vw;
 }
-.no-point[data-v-504c4277] {
+.no-point[data-v-32043446] {
   pointer-events: none;
 }
 
-.message-text[data-v-6bf13b39] {
+.message-text[data-v-19a0b8a0] {
   -webkit-hyphens: auto;
       -ms-hyphens: auto;
           hyphens: auto;
@@ -718,7 +718,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
   border: 0 !important;
 }
 
-.card[data-v-78356de8] {
+.card[data-v-f9202b2e] {
   width: 75vw;
   position: inherit; /* workaround to card being displayed on top of toolbar shadow */
   padding-bottom: 0.5em;
@@ -726,22 +726,22 @@ NOTE: not using var() for different heights due to IE11 compatibility
           box-shadow: none !important;
   background-color: unset !important;
 }
-.card__title[data-v-78356de8] {
+.card__title[data-v-f9202b2e] {
   padding: 0.5em;
   padding-top: 0.75em;
 }
-.card__text[data-v-78356de8] {
+.card__text[data-v-f9202b2e] {
   padding: 0.33em;
 }
-.button-row[data-v-78356de8] {
+.button-row[data-v-f9202b2e] {
   display: inline-block;
 }
-.card__actions .btn[data-v-78356de8] {
+.card__actions .btn[data-v-f9202b2e] {
   margin: 4px 4px;
   font-size: 1em;
   min-width: 44px;
 }
-.card__actions.button-row[data-v-78356de8] {
+.card__actions.button-row[data-v-f9202b2e] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -805,15 +805,32 @@ NOTE: not using var() for different heights due to IE11 compatibility
 
 
 
-.message[data-v-7c4b3776], .message-bubble-column[data-v-7c4b3776] {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.message[data-v-5fa30f89], .message-bubble-column[data-v-5fa30f89] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
-.message[data-v-7c4b3776], .message-bubble-row[data-v-7c4b3776] {
+.message[data-v-5fa30f89], .message-bubble-row[data-v-5fa30f89] {
   max-width: 80vw;
 }
-.message-bubble[data-v-7c4b3776] {
+.message-bubble[data-v-5fa30f89] {
   border-radius: 24px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -826,7 +843,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
   -ms-flex-item-align: center;
       align-self: center;
 }
-.message-bot .message-bubble[data-v-7c4b3776] {
+.message-bot .message-bubble[data-v-5fa30f89] {
   background-color: #FFEBEE; /* red-50 from material palette */
 }
 
@@ -837,7 +854,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
   min-height: 48px;
 }
 
-.recorder-status[data-v-67018644] {
+.recorder-status[data-v-c7b33caa] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -849,7 +866,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.status-text[data-v-67018644] {
+.status-text[data-v-c7b33caa] {
   -ms-flex-item-align: center;
       align-self: center;
   display: -webkit-box;
@@ -857,12 +874,12 @@ NOTE: not using var() for different heights due to IE11 compatibility
   display: flex;
   text-align: center;
 }
-.volume-meter[data-v-67018644] {
+.volume-meter[data-v-c7b33caa] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.volume-meter meter[data-v-67018644] {
+.volume-meter meter[data-v-c7b33caa] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -871,10 +888,10 @@ NOTE: not using var() for different heights due to IE11 compatibility
           flex: 1;
   height: 0.75rem;
 }
-.processing-bar[data-v-67018644] {
+.processing-bar[data-v-c7b33caa] {
   height: 0.75rem;
 }
-.audio-progress-bar[data-v-67018644] {
+.audio-progress-bar[data-v-c7b33caa] {
   height: 0.75rem;
 }
 
