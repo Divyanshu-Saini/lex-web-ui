@@ -3,7 +3,7 @@
     :card="card"
     :data="data"
     :use-templating="true"
-    :host-config="config"
+    :host-config="hostConfig"
     @onActionClicked="onItemClick($event)"
   />
 </template>
@@ -23,12 +23,14 @@ export default {
   data() {
     return {
       data: "",
-      card: "",
-      config: ""
+      card: ""
     };
   },
   computed: {
-    ...mapGetters(["getLexSessionAttributes"])
+    ...mapGetters(["getLexSessionAttributes"]),
+    hostConfig() {
+      return this.$store.state.config.ui.adaptiveCardHostConfig;
+    }
   },
   methods: {
     onItemClick(event) {

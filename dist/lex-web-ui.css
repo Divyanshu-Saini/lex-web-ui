@@ -822,6 +822,8 @@ NOTE: not using var() for different heights due to IE11 compatibility
 
 
 
+
+
 .message[data-v-5fa30f89], .message-bubble-column[data-v-5fa30f89] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
