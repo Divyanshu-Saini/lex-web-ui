@@ -106,6 +106,7 @@ export default {
       botV2AliasId: context.state.config.lex.v2BotAliasId,
       botV2LocaleId: context.state.config.lex.v2BotLocaleId,
       lexRuntimeV2Client: payload.v2client,
+      userId: context.state.config.lex.userId,
     });
 
     context.commit(
