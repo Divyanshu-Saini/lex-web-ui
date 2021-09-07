@@ -72,9 +72,7 @@ export default class {
   initCredentials(credentials) {
     this.credentials = credentials;
     this.lexRuntimeClient.config.credentials = this.credentials;
-    this.userId = (credentials.identityId) ?
-      credentials.identityId :
-      this.userId;
+    this.userId = this.userId;
   }
 
   deleteSession() {
