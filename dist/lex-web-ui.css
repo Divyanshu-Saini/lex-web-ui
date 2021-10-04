@@ -576,20 +576,20 @@ NOTE: not using var() for different heights due to IE11 compatibility
       align-self: flex-end;
 }
 
-.smicon[data-v-f1151fd2] {
+.smicon[data-v-0805b5b6] {
   font-size: 14px;
 }
-.message[data-v-f1151fd2],
-.message-bubble-column[data-v-f1151fd2] {
+.message[data-v-0805b5b6],
+.message-bubble-column[data-v-0805b5b6] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
 }
-.message[data-v-f1151fd2],
-.message-bubble-row[data-v-f1151fd2] {
+.message[data-v-0805b5b6],
+.message-bubble-row[data-v-0805b5b6] {
   max-width: 80vw;
 }
-.bot-avatar[data-v-f1151fd2] {
+.bot-avatar[data-v-0805b5b6] {
   -ms-flex-item-align: center;
       align-self: center;
   border-radius: 50%;
@@ -599,7 +599,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
       align-self: flex-start;
   margin-right: 4px;
 }
-.message-bubble[data-v-f1151fd2] {
+.message-bubble[data-v-0805b5b6] {
   border-radius: 12px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -612,7 +612,7 @@ NOTE: not using var() for different heights due to IE11 compatibility
   -ms-flex-item-align: center;
       align-self: center;
 }
-.focusable[data-v-f1151fd2] {
+.focusable[data-v-0805b5b6] {
   -webkit-box-shadow: 0 0.25px 0.75px rgba(0, 0, 0, 0.12),
     0 0.25px 0.5px rgba(0, 0, 0, 0.24);
           box-shadow: 0 0.25px 0.75px rgba(0, 0, 0, 0.12),
@@ -621,75 +621,75 @@ NOTE: not using var() for different heights due to IE11 compatibility
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: default;
 }
-.focusable[data-v-f1151fd2]:focus {
+.focusable[data-v-0805b5b6]:focus {
   -webkit-box-shadow: 0 1.25px 3.75px rgba(0, 0, 0, 0.25),
     0 1.25px 2.5px rgba(0, 0, 0, 0.22);
           box-shadow: 0 1.25px 3.75px rgba(0, 0, 0, 0.25),
     0 1.25px 2.5px rgba(0, 0, 0, 0.22);
   outline: none;
 }
-.message-bot .message-bubble[data-v-f1151fd2] {
+.message-bot .message-bubble[data-v-0805b5b6] {
   background-color: #c8e6c9; /* red-50 from material palette */
 }
-.message-human .message-bubble[data-v-f1151fd2] {
+.message-human .message-bubble[data-v-0805b5b6] {
   background-color: #bbdefb; /* indigo-50 from material palette */
 }
-.message-feedback .message-bubble[data-v-f1151fd2] {
-  background-color: #bbdefb;
+.message-feedback .message-bubble[data-v-0805b5b6] {
+  background-color: #c8e6c9;
 }
-.dialog-state[data-v-f1151fd2] {
+.dialog-state[data-v-0805b5b6] {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
-.icon.dialog-state-ok[data-v-f1151fd2] {
+.icon.dialog-state-ok[data-v-0805b5b6] {
   color: green;
 }
-.icon.dialog-state-fail[data-v-f1151fd2] {
+.icon.dialog-state-fail[data-v-0805b5b6] {
   color: red;
 }
-.play-icon[data-v-f1151fd2] {
+.play-icon[data-v-0805b5b6] {
   font-size: 2em;
 }
-.feedback-state[data-v-f1151fd2] {
+.feedback-state[data-v-0805b5b6] {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-item-align: center;
       align-self: center;
 }
-.icon.feedback-icons-positive[data-v-f1151fd2] {
+.icon.feedback-icons-positive[data-v-0805b5b6] {
   color: grey;
   /* color: #E8EAF6; */
   /* color: green; */
   padding: 0.125em;
 }
-.positiveClick[data-v-f1151fd2] {
+.positiveClick[data-v-0805b5b6] {
   color: green;
   padding: 0.125em;
 }
-.negativeClick[data-v-f1151fd2] {
+.negativeClick[data-v-0805b5b6] {
   color: red;
   padding: 0.125em;
 }
-.icon.feedback-icons-positive[data-v-f1151fd2]:hover {
+.icon.feedback-icons-positive[data-v-0805b5b6]:hover {
   color: green;
 }
-.icon.feedback-icons-negative[data-v-f1151fd2] {
+.icon.feedback-icons-negative[data-v-0805b5b6] {
   /* color: #E8EAF6; */
   color: grey;
   padding: 0.125em;
 }
-.icon.feedback-icons-negative[data-v-f1151fd2]:hover {
+.icon.feedback-icons-negative[data-v-0805b5b6]:hover {
   color: red;
 }
-.response-card[data-v-f1151fd2] {
+.response-card[data-v-0805b5b6] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   width: 85vw;
 }
-.no-point[data-v-f1151fd2] {
+.no-point[data-v-0805b5b6] {
   pointer-events: none;
 }
 
