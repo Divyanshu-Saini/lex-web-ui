@@ -377,7 +377,7 @@ export default {
 }
 
 .message-bubble {
-  border-radius: 24px;
+  border-radius: 12px;
   display: inline-flex;
   font-size: calc(1em + 0.25vmin);
   padding: 0 12px;
@@ -399,15 +399,15 @@ export default {
 }
 
 .message-bot .message-bubble {
-  background-color: #ffebee; /* red-50 from material palette */
+  background-color: #c8e6c9; /* red-50 from material palette */
 }
 
 .message-human .message-bubble {
-  background-color: #e8eaf6; /* indigo-50 from material palette */
+  background-color: #bbdefb; /* indigo-50 from material palette */
 }
 
 .message-feedback .message-bubble {
-  background-color: #e8eaf6;
+  background-color: #c8e6c9;
 }
 
 .dialog-state {
