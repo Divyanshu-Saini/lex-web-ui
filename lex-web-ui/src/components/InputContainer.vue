@@ -26,6 +26,7 @@
           name="text-input"
           single-line
           hide-details
+          autocomplete="off"
         ></v-text-field>
 
         <recorder-status
